@@ -47,57 +47,29 @@ export default function PlacePage() {
                 <div className='text-sm text-gray-700 leading-5 mb-4 mt-2'>{place.extraInfo}</div>
             </div>
             <h1 className='mt-4 font-semibold text-2xl'>Let's Connect ...</h1>
-            {/* <div className="relative inline-block p-2 rounded-lg">
-  <img
-    src="https://th.bing.com/th/id/OIP.Cb6Y_-8z_qynypQmCEacpQHaE7?w=268&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
-    alt=""
-    className="w-full rounded-lg filter blur-sm"
-  />
-  <a href="/lobby" className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className="w-full h-full text-black hover:text-primary transition-colors duration-300 ease-in-out shadow-lg hover:shadow-xl z-10"
-    >
-      <path d="M4.5 4.5a3 3 0 0 0-3 3v9a3 3 0 0 0 3 3h8.25a3 3 0 0 0 3-3v-9a3 3 0 0 0-3-3H4.5ZM19.94 18.75l-2.69-2.69V7.94l2.69-2.69c.944-.945 2.56-.276 2.56 1.06v11.38c0 1.336-1.616 2.005-2.56 1.06Z" />
-    </svg>
-  </a>
-  <span className="absolute bottom-20 left-1/2 transform -translate-x-1/2 text-white text-s font-semibold z-20">Live tour, real talk</span>
-</div>
-
-
-
- */}
-<div className="relative inline-block p-2 rounded-lg">
-      <img
+            
+            <div className="relative inline-block p-2 rounded-lg">
+    <img
         src="https://th.bing.com/th/id/OIP.Cb6Y_-8z_qynypQmCEacpQHaE7?w=268&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
         alt=""
         className="w-full rounded-lg filter blur-sm"
-      />
-      <a href={`/lobby/${placeId}`} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12">
+    />
+    <a href={`/lobby/${id}`} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 z-10">
         <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          className="w-full h-full text-black hover:text-primary transition-colors duration-300 ease-in-out shadow-lg hover:shadow-xl z-10"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="w-full h-full text-black hover:text-primary transition-colors duration-300 ease-in-out shadow-lg hover:shadow-xl"
         >
-          <path d="M4.5 4.5a3 3 0 0 0-3 3v9a3 3 0 0 0 3 3h8.25a3 3 0 0 0 3-3v-9a3 3 0 0 0-3-3H4.5ZM19.94 18.75l-2.69-2.69V7.94l2.69-2.69c.944-.945 2.56-.276 2.56 1.06v11.38c0 1.336-1.616 2.005-2.56 1.06Z" />
+            <path d="M4.5 4.5a3 3 0 0 0-3 3v9a3 3 0 0 0 3 3h8.25a3 3 0 0 0 3-3v-9a3 3 0 0 0-3-3H4.5ZM19.94 18.75l-2.69-2.69V7.94l2.69-2.69c.944-.945 2.56-.276 2.56 1.06v11.38c0 1.336-1.616 2.005-2.56 1.06Z" />
         </svg>
-      </a>
-      <span className="absolute bottom-20 left-1/2 transform -translate-x-1/2 text-white text-s font-semibold z-20">Live tour, real talk</span>
-    </div>
-
-
-
-
-
-
-            
-
-
+    </a>
+    <span className="absolute bottom-20 left-1/2 transform -translate-x-1/2 text-white text-s font-semibold z-0">Live tour, real talk</span>
+</div>
 
 
         </div>
     );
 }
+
+
