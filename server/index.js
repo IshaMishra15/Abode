@@ -304,6 +304,16 @@ io.on("connection", (socket) => {
   socket.on('call:hangup', ({ to }) => {
     socket.to(to).emit('call:hangup');
   });
+  
+
+  
+    // Handle video mute/unmute
+    socket.on('video:mute', ({ to, muted }) => {
+        io.to(to).emit('video:mute', { muted });
+      });
+    socket.on('audio:mute', ({ to, muted }) => {
+        io.to(to).emit('audio:mute', { muted });
+      });
 });
 app.listen(4000);
 
@@ -311,4 +321,3 @@ app.listen(4000);
 
 
  
-

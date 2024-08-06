@@ -13,7 +13,7 @@ export default function PlacesPage(){
         });
     }, []);
     return (
-        <div>
+        <div >
             <AccountNav/>
                 <div className="text-center">
                     

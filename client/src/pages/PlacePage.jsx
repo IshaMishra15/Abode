@@ -16,13 +16,14 @@ export default function PlacePage() {
         }
         axios.get(`/places/${id}`).then(response => {
             setPlace(response.data);
+            console.log("placepage",response.data);
         });
     }, [id]);
 
     if (!place) return '';
 
     return (
-        <div className='mt-4 bg-gray-100 -mx-8 py-8 px-8'>
+        <div className='mt-4 bg-gray-100 -mx-8 py-8 px-8 ' >
             <h1 className='text-2xl'>{place.title}</h1>
             <AddressLink>{place.address}</AddressLink>
             <PlaceGalary place={place}/>
@@ -46,9 +47,9 @@ export default function PlacePage() {
                 </div>
                 <div className='text-sm text-gray-700 leading-5 mb-4 mt-2'>{place.extraInfo}</div>
             </div>
-            <h1 className='mt-4 font-semibold text-2xl'>Let's Connect ...</h1>
+            <h1 className='mt-4 font-semibold text-2xl pb-4'>Let's Connect ...</h1>
             
-            <div className="relative inline-block p-2 rounded-lg">
+            <div className="relative inline-block p-2 rounded-lg border-4 border-gray-400 hover:border-primary ">
     <img
         src="https://th.bing.com/th/id/OIP.Cb6Y_-8z_qynypQmCEacpQHaE7?w=268&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
         alt=""
@@ -64,7 +65,7 @@ export default function PlacePage() {
             <path d="M4.5 4.5a3 3 0 0 0-3 3v9a3 3 0 0 0 3 3h8.25a3 3 0 0 0 3-3v-9a3 3 0 0 0-3-3H4.5ZM19.94 18.75l-2.69-2.69V7.94l2.69-2.69c.944-.945 2.56-.276 2.56 1.06v11.38c0 1.336-1.616 2.005-2.56 1.06Z" />
         </svg>
     </a>
-    <span className="absolute bottom-20 left-1/2 transform -translate-x-1/2 text-white text-s font-semibold z-0">Live tour, real talk</span>
+    <span className="absolute bottom-20 left-1/2 transform -translate-x-1/2 text-white text-xl font-semibold z-0 ">Live tour, real talk</span>
 </div>
 
 

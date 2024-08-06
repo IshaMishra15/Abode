@@ -36,11 +36,10 @@ function App() {
 
 
 
-
  
             <Route path="/lobby/:placeId" element={<LobbyScreen />} />
               {/* <Route path="/lobby" element={<LobbyScreen/>}/> */}
-              <Route path="/room/:roomId" element={<RoomPage/>}/>
+              <Route path="/room/:placeId" element={<RoomPage/>}/>
             
           </Route>
       </Routes>

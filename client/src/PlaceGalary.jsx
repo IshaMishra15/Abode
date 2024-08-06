@@ -5,7 +5,7 @@ export default function PlaceGalary({place}) {
    
     if (showAllPhotos) {
         return (
-            <div className='absolute inset-0 bg-black min-h-screen overflow-auto text-white'>
+            <div className='absolute inset-0 bg-black min-h-screen overflow-auto text-white '>
                 <div className='p-8 grid gap-4'>
                     <div>
                         <h2 className='text-3xl mr-36'>Photos of {place.title}</h2>
@@ -28,8 +28,8 @@ export default function PlaceGalary({place}) {
         );
     }
   return (
-    <div className='relative'>
-                <div className='rounded-3xl overflow-hidden grid gap-2 grid-cols-[2fr_1fr]'>
+    <div className='relative container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-72'>
+                <div className='rounded-3xl overflow-hidden grid gap-2 grid-cols-[2fr_1fr] '>
                     <div>
                         {place.photos?.[0] && (
                             <div>

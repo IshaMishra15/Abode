@@ -164,9 +164,9 @@ const RoomPage = () => {
   ]);
 
   return (
-    <div style={{ position: 'relative', height: '100vh', width: '100vw', backgroundColor: '#000' }}>
-      <h1 style={{ color: '#fff' }}>Room Page</h1>
-      <h4 style={{ color: '#fff' }}>{remoteSocketId ? "Connected" : "No one in room"}</h4>
+    <div style={{ position: 'relative', height: '100vh', width: '100vw', backgroundColor: 'white' }}>
+      <h1 style={{ color: 'black' }}>Room</h1>
+      <h4 style={{ color: 'black' }} className="text-center text-4xl p-10">{remoteSocketId ? "Connected" : "No one in room"}</h4>
       {!streamSent && (
         <>
           {myStream && <button onClick={sendStreams} style={{  top: '50%',
@@ -207,12 +207,13 @@ const RoomPage = () => {
           position: 'absolute',
           top: 20,
           left: 20,
-          width: '150px',
-          height: '150px',
+          width: '250px',
+          height: '200px',
           zIndex: 2,
           border: '2px solid #fff',
-          borderRadius: '10px',
-          backgroundColor: '#000'
+          borderRadius: '20px',
+          backgroundColor: 'white',
+          
         }}>
           <ReactPlayer
             playing
@@ -231,7 +232,7 @@ const RoomPage = () => {
           width: '100%',
           height: '100%',
           zIndex: 1,
-          backgroundColor: '#000'
+          backgroundColor: 'white'
         }}>
           <ReactPlayer
             playing
@@ -250,3 +251,9 @@ const RoomPage = () => {
 };
 
 export default RoomPage;
+
+
+
+
+
+

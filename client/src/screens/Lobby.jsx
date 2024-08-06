@@ -1,36 +1,54 @@
-import React, { useState, useCallback, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import  React,{ useState, useCallback, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { useSocket } from "../context/SocketProvider";
+import axios from "axios";
 
 const LobbyScreen = () => {
+  const [place, setPlace] = useState(null);
   const [email, setEmail] = useState("");
-  const [room, setRoom] = useState("");
-
+  const [ownerId, setOwnerId] = useState(""); // State to store owner's ID
+  const { placeId } = useParams();
   const socket = useSocket();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!placeId) {
+      console.error("No place ID provided");
+      return;
+    }
+
+    axios.get(`/places/${placeId}`)
+      .then(response => {
+        setPlace(response.data);
+        setOwnerId(response.data.ownerId); // Assuming ownerId is in the response
+      })
+      .catch(error => {
+        console.error("Error fetching place data:", error);
+      });
+  }, [placeId]);
 
   const handleSubmitForm = useCallback(
     (e) => {
       e.preventDefault();
-      socket.emit("room:join", { email, room });
+      if (!email) {
+        alert("Please fill out all fields");
+        return;
+      }
+      navigate(`/room/${placeId}`);
+      // Emit room join event with ownerId included
+      socket.emit("room:join", { email, room: placeId, ownerId });
     },
-    [email, room, socket]
+    [email, socket, placeId, ownerId]
   );
 
-  const handleJoinRoom = useCallback(
-    (data) => {
-      const { email, room } = data;
-      navigate(`/room/${room}`);
-    },
-    [navigate]
-  );
-
-  useEffect(() => {
-    socket.on("room:join", handleJoinRoom);
-    return () => {
-      socket.off("room:join", handleJoinRoom);
-    };
-  }, [socket, handleJoinRoom]);
+  if (!place) {
+    return (
+      <div>
+        <h1>Loading...</h1>
+        {/* Optionally display an error message */}
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -44,21 +62,10 @@ const LobbyScreen = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
         <br />
-        <label htmlFor="room">Room Number</label>
-        <input
-          type="text"
-          id="room"
-          value={room}
-          onChange={(e) => setRoom(e.target.value)}
-        />
-        <br />
-        <button className="primary my-4 ">Join</button>
+        <button className="primary my-4">Join</button>
       </form>
     </div>
   );
 };
 
 export default LobbyScreen;
-
-
-
